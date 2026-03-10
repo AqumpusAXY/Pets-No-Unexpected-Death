@@ -1,5 +1,34 @@
-# 项目排除路径
-/.gradle/
-/build/
-/out/
-/out/production/classes/
+### Gradle ###
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+out/
+bin/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Logs and temp files ###
+logs/
+*.log
+crash-reports/
+replay-recordings/
+
+### Minecraft run directories ###
+/run/
+run-data/
+
+### Misc ###
+*.tmp
+*.bak
+*.swp
+*~
+
+### Test pack ###
+src/main/java/github/AqumpusAXY/mana_jade/test/
+
+### Cache ###
+/src/generated/resources/.cache/
