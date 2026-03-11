@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = Pnud.MODID)
-public class TamedEntityDamageListener {
+public class OwnableEntityHurtHandler {
     private static final Set<ResourceKey<DamageType>> DAMAGE_TYPES = Set.of(
             DamageTypes.CACTUS,
             DamageTypes.IN_FIRE,
@@ -21,7 +21,11 @@ public class TamedEntityDamageListener {
     );
 
     @SubscribeEvent
-    public static void onLivingHurt(LivingAttackEvent event) {
+    public static void onPetHurt(LivingAttackEvent event) {
+        if (event.getEntity().level().isClientSide) {
+            return;
+        }
+
         if (!(event.getEntity() instanceof OwnableEntity ownable && ownable.getOwner() != null)) {
             return;
         }
